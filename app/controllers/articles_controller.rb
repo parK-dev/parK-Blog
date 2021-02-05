@@ -35,6 +35,12 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to articles_path
+  end
 end
 
 # We are using @ to make instance variables so that they can be accessed by the views.
