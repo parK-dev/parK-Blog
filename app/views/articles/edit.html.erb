@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Article</title>
+</head>
+<body>
+  <h1>Edit Article</h1>
+  <% if @article.errors.any?%>
+    <h2>The following errors prevented the article from being saved: </h2>
+    <ul>
+      <% @article.errors.full_messages.each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with(model: @article, local: true) do |f|%>
+    <p>
+      <%= f.label :title%><br/>
+      <%= f.text_field :title%>
+    </p>
+
+    <p>
+      <%= f.label :description%><br/>
+      <%= f.text_area :description%>
+    </p>
+
+    <p>
+      <%= f.submit%>
+    </p>
+  <% end %>
+</body>
+</html>
