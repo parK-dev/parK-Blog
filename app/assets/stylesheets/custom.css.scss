@@ -27,5 +27,33 @@
 
 .footer {
   background-color: #141414;
-  color: rgb(187, 187, 187)
+  color: rgb(187, 187, 187);
+}
+
+.page-content {
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
+  padding-bottom: 60px;   /*Needs padding to counteract the bootstrap sticky footer hiding content*/
+}
+
+/*Bootstrap overrides*/
+
+.card {
+  background-color: #141414 !important;
+  border-color: rgb(49, 49, 49) !important;
+  color: #cccccc !important;
+}
+
+.card-footer, .card-header {
+  border-color: rgb(49, 49, 49) !important;
+  color: #cccccc !important;
+}
+
+.card-title a {
+  color: #cccccc !important;
+  text-decoration: none !important;
+}
+
+.card-title a:hover {
+  text-decoration: underline !important;
 }
