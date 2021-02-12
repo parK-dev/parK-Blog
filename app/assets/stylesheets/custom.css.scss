@@ -8,7 +8,7 @@
   color:  rgb(216, 216, 29);
 }
 
-.jumbotron {
+.jumbotron-home {
   color: rgb(216, 216, 29);
   padding: 4rem 2rem;
   margin-bottom: 2rem;
@@ -17,11 +17,11 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-blend-mode: darken;
+  background-blend-mode: overlay;
   height: 100vh;
 }
 
-.jumbotron p {
+.jumbotron-home p {
   color: rgb(187, 187, 187);
 }
 
