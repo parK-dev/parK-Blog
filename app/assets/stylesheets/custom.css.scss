@@ -8,6 +8,11 @@
   color:  #FFC107;
 }
 
+.nav-item a:hover, .navbar-brand:hover {
+  color:#cccccc;
+  text-decoration: underline;
+}
+
 .jumbotron-home {
   color: #FFC107;
   padding: 4rem 2rem;
