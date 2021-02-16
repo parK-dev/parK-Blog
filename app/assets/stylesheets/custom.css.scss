@@ -1,5 +1,9 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+html, body {
+  height: 100%;
+}
+
 .navbar {
   background-color: #141414;
 }
@@ -61,4 +65,23 @@
 
 .card-title a:hover {
   text-decoration: underline !important;
+}
+
+.form-group {
+  border-color: rgb(49, 49, 49) !important;
+  color: #cccccc !important;
+}
+
+.text-custom-light {
+  color: #cccccc !important;
+}
+
+.form-control, .form-control:focus{
+  border-color:rgb(49, 49, 49) !important;
+  -webkit-box-shadow:none !important;
+  box-shadow:none !important;
+}
+
+.bg-custom-dark {
+  background-color: #141414 !important;
 }

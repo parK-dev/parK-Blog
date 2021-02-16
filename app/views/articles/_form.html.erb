@@ -1,14 +1,25 @@
-<%= render 'error'%>
-<%= form_with(model: @article, local: true) do |f|%>
-  <p>
-    <%= f.label :title%><br/>
-    <%= f.text_field :title%>
-  </p>
-  <p>
-    <%= f.label :description%><br/>
-    <%= f.text_area :description%>
-  </p>
-  <p>
-    <%= f.submit%>
-  </p>
-<% end %>
+<div class="container">
+  <%= render 'error'%>
+  <div class="row justify-content-center p-4">
+    <div class="col-10">
+      <%= form_with(model: @article, local: true) do |f|%>
+        <div class="form-group row mt-2">
+          <%= f.label :title, class: "col-2 col-form-label"%>
+          <div class="col-8">
+            <%= f.text_field :title, class: "form-control bg-custom-dark text-custom-light", placeholder: "Title of the article"%>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :content, class: "col-2 col-form-label"%>
+          <div class="col-8">
+            <%= f.text_area :content, rows: 10, class: "form-control bg-custom-dark text-custom-light", placeholder: "Content of the article"%>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "Publish", class: "btn btn-outline-warning"%>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to '[ Actually... nevermind that. ]', articles_path, class: "text-center text-warning"%>
+  </div>
+</div>
