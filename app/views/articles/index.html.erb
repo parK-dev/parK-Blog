@@ -3,34 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Indext</title>
 </head>
 <body>
-  <div class="page-content">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <% @articles.each do |article|%>
-              <div class="mt-4">
-                <div class="card text-center">
-                  <div class="card-header font-italic">
-                    by parK-dev
-                  </div>
-                <div class="card-body">
-                  <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
-                  <p class="card-text"><%= truncate(article.content, length: 100) %></p>
-                  <%= link_to "View", article_path(article), class: "btn btn-outline-warning"%>
-                  <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-warning"%>
-                  <%= link_to "Delete", article_path(article), class: "btn btn-outline-warning", method: :delete, data: {confirm: "Are you sure?"}%>
-                </div>
-                <div class="card-footer">
-                  <small>Written <%= time_ago_in_words(article.created_at)%> ago</small>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <% @articles.each do |article|%>
+          <div class="mt-4">
+            <div class="card text-center">
+              <div class="card-header font-italic">
+                by parK-dev
               </div>
-            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>
+              <p class="card-text"><%= truncate(article.content, length: 100) %></p>
+              <%= link_to "View", article_path(article), class: "btn btn-outline-warning"%>
+              <%= link_to "Edit", edit_article_path(article), class: "btn btn-outline-warning"%>
+              <%= link_to "Delete", article_path(article), class: "btn btn-outline-warning", method: :delete, data: {confirm: "Are you sure?"}%>
+            </div>
+            <div class="card-footer">
+              <small>Written <%= time_ago_in_words(article.created_at)%> ago</small>
+            </div>
           </div>
-        </div>    
+        <% end %>
       </div>
+    </div>    
   </div>
 </body>
 </html>

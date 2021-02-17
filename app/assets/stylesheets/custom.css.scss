@@ -39,7 +39,7 @@ html, body {
   color: rgb(187, 187, 187);
 }
 
-.page-content {
+#page-content {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
   padding-bottom: 60px;   /*Needs padding to counteract the bootstrap sticky footer hiding content*/
