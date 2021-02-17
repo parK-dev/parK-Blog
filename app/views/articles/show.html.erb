@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article</title>
-  </head>
-  <body>
-    <h1>Showing Article Details</h1>
-    <p><strong>Title: <%= @article.title%></strong></p>
-    <p><strong>Description: <%= @article.content%></strong></p>
-    <%= link_to 'Edit', edit_article_path(@article)%> |
-    <%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"}%> |
-    <%= link_to 'Return to listing', articles_path%>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="page-content">
+    <h2 class="text-center mt-4 text-custom-light"><%= @article.title%></h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+              <div class="mt-4">
+                <div class="card text-center">
+                  <div class="card-header font-italic">
+                    by parK-dev
+                  </div>
+                <div class="card-body">
+                  <div class="card-text text-left"><%= simple_format(@article.content) %></div>
+                  <%= link_to "Edit", edit_article_path(@article), class: "btn btn-outline-warning"%>
+                  <%= link_to "Delete", article_path(@article), class: "btn btn-outline-warning", method: :delete, data: {confirm: "Are you sure?"}%>
+                </div>
+                <div class="card-footer">
+                  <small>Written <%= time_ago_in_words(@article.created_at)%> ago</small>
+                </div>
+              </div>
+          </div>
+        </div>    
+      </div>
+</body>
 </html>
