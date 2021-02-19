@@ -1,0 +1,31 @@
+<%= render 'shared/errors', obj: @user%>
+<div class="container">
+  <div class="row justify-content-center p-4">
+    <div class="col-10">
+      <%= form_with(model: @user, local: true) do |f|%>
+        <div class="form-group row mt-2">
+          <%= f.label :username, class: "col-2 col-form-label"%>
+          <div class="col-8">
+            <%= f.text_field :username, class: "form-control bg-custom-dark text-custom-light", placeholder: "Enter a username"%>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :email, class: "col-2 col-form-label"%>
+          <div class="col-8">
+            <%= f.email_field :email, class: "form-control bg-custom-dark text-custom-light", placeholder: "Enter your email"%>
+          </div>
+        </div>
+        <div class="form-group row">
+          <%= f.label :password, class: "col-2 col-form-label"%>
+          <div class="col-8">
+            <%= f.password_field :password, class: "form-control bg-custom-dark text-custom-light", placeholder: "Enter a secure password"%>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <%= f.submit "Sign me up!", class: "btn btn-outline-warning"%>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to '[ Actually... nevermind that. ]', articles_path, class: "text-center text-warning w-auto"%>
+  </div>
+</div>

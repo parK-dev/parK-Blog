@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   # Provides all the RESTful routes to articles
   resources :articles
-  
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]  
 end
