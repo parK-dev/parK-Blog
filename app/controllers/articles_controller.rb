@@ -26,6 +26,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params_whitelist)
+    @article.user = User.first
     if @article.save
       flash[:notice] = "Article was created successfully."
       redirect_to @article
