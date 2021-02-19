@@ -13,7 +13,7 @@
         <div class="mt-4">
           <div class="card text-center">
             <div class="card-header font-italic">
-              by parK-dev
+              <%= @article.user.username %>
             </div>
           <div class="card-body">
             <div class="card-text text-left"><%= simple_format(@article.content) %></div>
