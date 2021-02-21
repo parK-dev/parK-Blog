@@ -12,7 +12,13 @@
       <div class="mt-4">
         <%= link_to "The secret of getting ahead is getting started", new_article_path, class: "btn btn-outline-warning btn-block"%>
       </div>
+        <div class="flickr_pagination mt-4">
+          <%= will_paginate @articles, :container => false %>
+        </div>
         <%= render 'article' %>
+        <div class="flickr_pagination m-4">
+          <%= will_paginate @articles, :container => false %>
+        </div>
       </div>
     </div>    
   </div>
