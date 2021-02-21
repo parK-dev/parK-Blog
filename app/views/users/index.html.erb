@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Index</title>
+</head>
+<body>
+  <h1 class="text-center text-warning mt-4">The writers</h1>
+  <% @users.each do |user|%>
+  <div class="mt-4">
+    <div class="card text-center">
+      <div class="card-header font-italic">
+        <%= user.username %>
+      </div>
+    <div class="card-body">
+      <div class="card-text"><%= pluralize(user.articles.count, "post") %></div><br>
+      <%= link_to "View profile", user, class: "btn btn-outline-warning"%>
+      <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-warning"%>
+    </div>
+    <div class="card-footer">
+      <small>Joined <%= time_ago_in_words(user.created_at)%> ago</small>
+    </div>
+  </div>
+  <% end %>
+</body>
+</html>
