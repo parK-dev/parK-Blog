@@ -6,7 +6,8 @@
   <title>User Profile</title>
 </head>
 <body>
-  <h1 class="text-center text-warning pt-4"><%= @user.username %>'s Posts</h1>
+  <h1 class="text-center text-warning pt-4"><%= @user.username %></h1>
+  <h5 class="text-center text-warning pt-4"><%= @user.about %></h5>
   <%= render 'articles/article' %>
 </body>
 </html>
