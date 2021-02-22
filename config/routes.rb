@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  
   root 'pages#home'
-  get 'about', to: 'pages#about'
 
-  # Provides all the RESTful routes to articles
+  # Provides all RESTful routes
   resources :articles
+  resources :users, except: [:new]
+
+  # Provides all non-RESTful routes
   get 'signup', to: 'users#new'
-  resources :users, except: [:new]  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
 end

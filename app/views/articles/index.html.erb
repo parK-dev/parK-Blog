@@ -10,7 +10,11 @@
     <div class="row justify-content-center">
       <div class="col-12">
       <div class="mt-4">
-        <%= link_to "The secret of getting ahead is getting started", new_article_path, class: "btn btn-outline-warning btn-block"%>
+        <% if logged_in?%>
+          <%= link_to "The secret of getting ahead is getting started", new_article_path, class: "btn btn-outline-warning btn-block"%>
+        <% else %>
+          <%= link_to "The secret of getting ahead is getting started", signup_path, class: "btn btn-outline-warning btn-block"%>
+        <% end %>
       </div>
         <div class="flickr_pagination mt-4">
           <%= will_paginate @articles, :container => false %>
