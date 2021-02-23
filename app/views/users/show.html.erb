@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Profile</title>
 </head>
-<body>
+<body id="page-content">
   <h1 class="text-center text-warning pt-4"><%= @user.username %></h1>
   <h5 class="text-center text-custom-light pt-2"><%= @user.about %></h5>
   <%if logged_in? && @user == current_user%>

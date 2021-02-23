@@ -24,12 +24,7 @@ html, body {
   color: #FFC107;
   padding: 4rem 2rem;
   margin-bottom: 2rem;
-  background-color: rgb(32, 32, 32);
-  background-image: asset-url('jumbotron.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: overlay;
+
   height: 100vh;
 }
 
@@ -46,6 +41,15 @@ html, body {
   background-color: #000000;
   background-image: linear-gradient(147deg, #000000 0%, #434343 74%);
   padding-bottom: 60px;   /*Needs padding to counteract the bootstrap sticky footer hiding content*/
+}
+
+#home-bg{
+  background-color: rgb(32, 32, 32);
+  background-image: asset-url('jumbotron.jpg') !important;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
 }
 
 /*Bootstrap overrides*/
