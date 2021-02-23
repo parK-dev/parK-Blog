@@ -15,22 +15,26 @@
         <li class="nav-item">
           <%= link_to "Writers", users_path, class: "nav-link"%>
         </li>
+        <% if logged_in? %>
+          <li class="nav-item mr-4 text-nowrap">
+              <%= link_to "Profile", user_path(current_user) %>
+          </li>
+        <% end %>
+        <% if logged_in? && current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to "Admin", users_path, class: "nav-link"%>
+          </li>
+        <% end %>
       </ul>
     </div>
       <ul class="navbar-nav navbar-right">
         <% if logged_in? %>
-          <li class="nav-item mr-4 text-nowrap">
-            <%= link_to "Profile", user_path(current_user) %>
-          </li>
           <li class="nav-item text-nowrap">
             <%= link_to 'Log out', logout_path, method: :delete %>
           </li>
         <% else %>
           <li class="nav-item mr-4 text-nowrap">
             <%= link_to 'Log In', login_path %>
-          </li>
-          <li class="nav-item text-nowrap">
-            <%= link_to 'Sign Up', signup_path %>
           </li>
         <% end %>
       </ul>

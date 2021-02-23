@@ -10,7 +10,8 @@
   <h5 class="text-center text-custom-light pt-2"><%= @user.about %></h5>
   <%if logged_in? && @user == current_user%>
     <div class="text-center mt-4">
-      <%= link_to "Rework my profile", edit_user_path(@user), class: "btn btn-outline-warning" %>
+      <%= link_to "Rework my profile", edit_user_path(@user), class: "btn btn-outline-warning mr-4" %>
+      <%= link_to "Delete my profile", user_path(@user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
   <% end %>
   <div class="flickr_pagination m-4">
