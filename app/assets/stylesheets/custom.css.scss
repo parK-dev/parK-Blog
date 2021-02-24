@@ -82,6 +82,15 @@ html, body {
   text-decoration: underline !important;
 }
 
+.card-title-category a {
+  color: #FFC107 !important;
+  text-decoration: none !important;
+}
+
+.card-title-category a:hover {
+  text-decoration: underline !important;
+}
+
 .form-group {
   border-color: rgb(49, 49, 49) !important;
   color: #cccccc !important;

@@ -26,6 +26,7 @@
           <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-warning"%>
         <% end %>
         <% if current_user.admin? %>
+          <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-warning ml-2"%>
           <%= link_to "Delete profile", user_path(user), class: "btn btn-outline-danger ml-2", method: :delete,
           data: { confirm: "Are you sure you want to delete this account and all its posts?"}%>
         <% end %>     
