@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params_whitelist
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, category_ids: [])
   end
 
   def require_same_user
