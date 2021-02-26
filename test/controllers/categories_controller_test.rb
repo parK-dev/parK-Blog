@@ -1,40 +1,41 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  
   setup do
-    @category = Category.create(name: "WebDev")
-    @admin_user = User.create(username: "admin", email: "admin@admin.com",
-                              password: "admin", about: "This is an admin", admin: "true")
+    @category = Category.create(name: 'WebDev')
+    @admin_user = User.create(username: 'admin', email: 'admin@admin.com',
+                              password: 'admin', about: 'This is an admin', admin: 'true')
   end
 
-  test "should get index" do
+  test 'should get index' do
     get categories_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     sign_in_as(@admin_user)
     get new_category_url
     assert_response :success
   end
 
-  test "should create category" do
+  test 'should create category' do
     sign_in_as(@admin_user)
     assert_difference('Category.count', 1) do
-      post categories_url, params: { category: { name: "GameDev" } }
+      post categories_url, params: { category: { name: 'GameDev' } }
     end
     assert_redirected_to categories_path
   end
 
-  test "should not create category if not admin" do
+  test 'should not create category if not admin' do
     assert_no_difference 'Category.count' do
-      post categories_url, params: { category: { name: "test"} }
+      post categories_url, params: { category: { name: 'test' } }
     end
     assert_redirected_to categories_url
   end
 
-  test "should show category" do
+  test 'should show category' do
     get category_url(@category)
     assert_response :success
   end

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:edit, :update, :show, :destroy]
-  before_action :require_admin, except: [:index, :show]
-  
+  before_action :set_category, only: %i[edit update show destroy]
+  before_action :require_admin, except: %i[index show]
+
   def new
     @category = Category.new
   end
-  
+
   def index
     @categories = Category.paginate(page: params[:page], per_page: 10)
   end
@@ -17,7 +19,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params_whitelist)
     if @category.save
-      flash[:notice] = "Category successfully created."
+      flash[:notice] = 'Category successfully created.'
       redirect_to categories_path
     else
       render 'new'
@@ -26,19 +28,18 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update(category_params_whitelist)
-      flash[:notice] = "Category name changed successfully"
+      flash[:notice] = 'Category name changed successfully'
       redirect_to @category
     else
       render 'edit'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
-  def destroy 
+  def destroy
     @category.destroy
-    flash[:notice] = "The category has been successfully deleted."
+    flash[:notice] = 'The category has been successfully deleted.'
     redirect_to categories_path
   end
 
@@ -53,8 +54,8 @@ class CategoriesController < ApplicationController
   end
 
   def require_admin
-    if !(logged_in? && current_user.admin?)
-      flash[:alert] = "This action requires administrator permissions"
+    unless logged_in? && current_user.admin?
+      flash[:alert] = 'This action requires administrator permissions'
       redirect_to categories_path
     end
   end
