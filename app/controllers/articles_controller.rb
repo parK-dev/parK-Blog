@@ -53,10 +53,10 @@ class ArticlesController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @article.user && !current_user.admin?
-      flash[:alert] = 'You are not the author of this post.'
-      redirect_to @article
-    end
+    return unless current_user != @article.user && !current_user.admin?
+
+    flash[:alert] = 'You are not the author of this post.'
+    redirect_to @article
   end
 end
 

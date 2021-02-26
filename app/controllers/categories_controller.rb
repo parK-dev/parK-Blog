@@ -54,9 +54,9 @@ class CategoriesController < ApplicationController
   end
 
   def require_admin
-    unless logged_in? && current_user.admin?
-      flash[:alert] = 'This action requires administrator permissions'
-      redirect_to categories_path
-    end
+    return if logged_in? && current_user.admin?
+
+    flash[:alert] = 'This action requires administrator permissions'
+    redirect_to categories_path
   end
 end

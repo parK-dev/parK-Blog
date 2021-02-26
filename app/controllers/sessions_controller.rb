@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
+before_action :set_user_session, only: %i[create]
+
 class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
     if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "You're in!"
@@ -20,4 +21,10 @@ class SessionsController < ApplicationController
     flash[:notice] = 'Logged out'
     redirect_to root_path
   end
+end
+
+private
+
+def set_session_user
+  user = User.find_by(email: params[:session][:email].downcase)
 end
