@@ -22,7 +22,7 @@
         <h5 class="card-title"><%= user.about %></h5>
         <div class="card-text"><%= pluralize(user.articles.count, "post") %></div><br>
         <%= link_to "View profile", user, class: "btn btn-outline-warning"%>
-          <% if logged_in? && (user == current_user || user.admin?) %>
+          <% if logged_in? && (user == current_user || current_user.admin?) %>
             <%= link_to "Edit profile", edit_user_path(user), class: "btn btn-outline-warning ml-2"%>
           <% end %>
           <% if logged_in? && current_user.admin? %>
