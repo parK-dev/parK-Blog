@@ -3,6 +3,11 @@
     <div class="card text-center">
     <div class="card-body">
       <h5 class="card-title-category"><%= link_to category.name, category_path(category) %></h5>
+      <div class="card-text"><%= pluralize(category.articles.count, "post") %></div><br>
+      <% if logged_in? && current_user.admin? %>
+        <%= link_to "Edit", edit_category_path(category), class: "btn btn-outline-warning m-2"%>
+        <%= link_to "Delete", category_path(category), class: "btn btn-outline-warning m-2", method: :delete, data: {confirm: "Are you sure?"}%>
+      <% end %>
     </div>
     <div class="card-footer">
       <small>Created <%= time_ago_in_words(category.created_at)%> ago</small>

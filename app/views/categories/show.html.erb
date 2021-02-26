@@ -1,1 +1,27 @@
-<h1>Category: <% @category.name %></h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+  </head>
+  <body id="page-content">
+    <h1 class="text-center text-warning mt-4"><%= @category.name %></h1>
+    <% if logged_in? && current_user.admin? %>
+      <div class="text-center mt-4">
+        <%= link_to "Rename category", edit_category_path(@category), class: "btn btn-outline-warning mr-4" %>
+        <%= link_to "Delete category", category_path(@category), class: "btn btn-outline-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
+    <div class="flickr_pagination m-4">
+      <%= will_paginate @articles, :container => false %>
+    </div>
+    <h5 class="text-center text-custom-light">Related Posts</h5>
+    <div class="container">
+      <%= render 'articles/article' %>
+    </div>
+    <div class="flickr_pagination m-4">
+      <%= will_paginate @articles, :container => false %>
+    </div>
+  </body>
+</html>

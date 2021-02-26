@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Provides all RESTful routes
   resources :articles
   resources :users, except: [:new]
-  resources :categories, except: [:destroy]
+  resources :categories
 
   # Provides all non-RESTful routes
   get 'signup', to: 'users#new'
