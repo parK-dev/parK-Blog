@@ -24,7 +24,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Category.count', 1) do
       post categories_url, params: { category: { name: "GameDev" } }
     end
-    assert_redirected_to category_url(Category.last)
+    assert_redirected_to categories_path
   end
 
   test "should not create category if not admin" do
